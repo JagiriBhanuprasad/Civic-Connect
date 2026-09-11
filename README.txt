@@ -19,3 +19,6 @@ Existing functionality preserved:
 - status updates
 - statistics + progress tracker
 - responsive navigation
+
+
+Donation payment: replace CIVIC_DONATION_UPI_ID in script.js with the real receiving UPI ID. App buttons attempt the selected UPI app and fall back to the standard UPI payment URI. Bank app deep links are not standardized, so bank selections use the UPI chooser.

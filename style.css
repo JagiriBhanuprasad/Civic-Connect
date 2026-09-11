@@ -111,7 +111,7 @@ body {
     background: linear-gradient(145deg, #74f477, #13bfa5 60%, #0c7653);
     box-shadow: 0 8px 24px rgba(54, 235, 133, .28);
     overflow: hidden;
-    transform: rotate(-2deg);
+    transform: rotate(0deg);
 }
 
 .brand-ring {
@@ -858,7 +858,7 @@ button:active { transform: translateY(0); }
 
 .stats-reference {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
     align-items: stretch;
 }
@@ -1548,3 +1548,457 @@ body.progress-open { overflow: hidden; }
 #languageSelect option{background:#073b2a;color:#fff}
 @media(max-width:900px){.language-selector{margin-left:auto;margin-right:8px}.nav-links .language-selector{margin-left:0}}
 @media(max-width:600px){#languageSelect{min-width:94px;padding-left:34px;padding-right:26px;font-size:.72rem}.language-selector::before{left:10px}}
+
+/* =========================================================
+   HERO REFERENCE SCENE — VISUAL ONLY
+   ========================================================= */
+.hero-city-reference {
+    width: min(58vw, 760px);
+    height: min(520px, 70vh);
+    right: 0;
+    bottom: 0;
+    overflow: visible;
+}
+
+.hero-city-reference::before {
+    content: "";
+    position: absolute;
+    inset: 8% -8% 0 0;
+    background: radial-gradient(circle at 60% 45%, rgba(95,255,138,.20), transparent 40%), linear-gradient(180deg, transparent 55%, rgba(0,28,19,.72));
+    border-radius: 48% 0 0 0;
+    pointer-events: none;
+}
+
+.hero-sun {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    right: 23%;
+    top: 5%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d9ff8c 0 26%, rgba(176,255,112,.72) 42%, rgba(96,255,130,.18) 68%, transparent 72%);
+    filter: blur(.3px);
+    animation: heroSunPulse 5s ease-in-out infinite;
+}
+
+.hero-haze { position:absolute; border-radius:50%; filter:blur(24px); opacity:.28; }
+.haze-a { width:260px; height:120px; right:5%; top:34%; background:#61ff96; }
+.haze-b { width:220px; height:90px; left:8%; top:48%; background:#25cfa1; opacity:.16; }
+
+.hero-birds { position:absolute; right:42%; top:18%; width:130px; height:50px; }
+.hero-birds i { position:absolute; width:24px; height:10px; border-top:3px solid rgba(216,255,225,.5); border-radius:50%; transform:rotate(-12deg); animation: birdFloat 5s ease-in-out infinite; }
+.hero-birds i::after { content:""; position:absolute; width:24px; height:10px; border-top:3px solid rgba(216,255,225,.5); border-radius:50%; left:17px; top:-3px; transform:rotate(24deg); }
+.hero-birds i:nth-child(1){left:5px;top:20px}.hero-birds i:nth-child(2){left:58px;top:5px;animation-delay:-1.4s;transform:scale(.7)}.hero-birds i:nth-child(3){left:100px;top:25px;animation-delay:-2.5s;transform:scale(.55)}
+
+.hero-city-backdrop { position:absolute; inset:15% 4% 25% 0; display:block; }
+.tower { position:absolute; bottom:0; left:var(--x); width:var(--w); height:var(--h); border-radius:3px 3px 0 0; border:1px solid rgba(180,255,201,.16); background:linear-gradient(145deg,rgba(52,150,99,.58),rgba(4,48,35,.92)); box-shadow:inset 10px 0 25px rgba(130,255,164,.05), 0 0 18px rgba(48,210,123,.05); transform-origin:bottom; animation: towerBreath 7s ease-in-out infinite; }
+.tower::after { content:""; position:absolute; inset:9px 7px; background:repeating-linear-gradient(to bottom,rgba(175,255,200,.34) 0 2px,transparent 2px 13px), repeating-linear-gradient(to right,transparent 0 11px,rgba(175,255,200,.12) 11px 13px); opacity:.72; }
+.tower b { position:absolute; top:-14px; left:42%; width:5px; height:14px; background:#78ff9c; box-shadow:0 0 12px rgba(120,255,156,.7); }
+.tower-a{--x:6%;--w:8%;--h:43%;animation-delay:-1s}.tower-b{--x:17%;--w:10%;--h:66%;animation-delay:-2s}.tower-c{--x:30%;--w:8%;--h:38%;animation-delay:-3s}.tower-d{--x:40%;--w:12%;--h:78%;animation-delay:-4s}.tower-e{--x:54%;--w:9%;--h:56%;animation-delay:-5s}.tower-f{--x:65%;--w:11%;--h:70%;animation-delay:-2.5s}.tower-g{--x:79%;--w:8%;--h:48%;animation-delay:-1.7s}.tower-h{--x:89%;--w:7%;--h:61%;animation-delay:-3.7s}
+
+.hero-trees { position:absolute; left:0; right:0; bottom:21%; height:34%; pointer-events:none; }
+.hero-trees span { position:absolute; bottom:0; width:70px; height:75px; border-radius:48% 48% 42% 42%; background:radial-gradient(circle at 50% 35%,#65db6f 0 22%,#218f4e 55%,#0a5438 100%); filter:drop-shadow(0 8px 12px rgba(0,0,0,.2)); animation: treeSway 5s ease-in-out infinite; }
+.hero-trees span::after { content:""; position:absolute; width:10px; height:42px; left:30px; bottom:-31px; background:#315b3e; border-radius:8px; }
+.trees-back { opacity:.62; transform:scale(.72); transform-origin:bottom; }
+.trees-front { opacity:.95; }
+.trees-back span:nth-child(1){left:3%}.trees-back span:nth-child(2){left:19%;transform:scale(1.15)}.trees-back span:nth-child(3){left:37%;transform:scale(.85)}.trees-back span:nth-child(4){left:58%;transform:scale(1.12)}.trees-back span:nth-child(5){left:80%;transform:scale(.9)}
+.trees-front span:nth-child(1){left:0;transform:scale(1.15)}.trees-front span:nth-child(2){left:15%;transform:scale(.82)}.trees-front span:nth-child(3){left:32%;transform:scale(1.08)}.trees-front span:nth-child(4){left:53%;transform:scale(.86)}.trees-front span:nth-child(5){left:71%;transform:scale(1.18)}.trees-front span:nth-child(6){left:89%;transform:scale(.95)}
+
+.hero-road-reference { left:0; right:-3%; bottom:-4%; height:47%; clip-path:polygon(0 100%,100% 100%,62% 0,39% 0); background:linear-gradient(135deg,#0a3426,#031c15 72%); transform:perspective(600px) rotateX(49deg); box-shadow:0 -12px 30px rgba(63,255,142,.08); }
+.hero-road-reference::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(96,255,142,.08),transparent 30%,transparent 70%,rgba(96,255,142,.08)); }
+.road-glow { position:absolute; left:50%; top:0; width:8px; height:100%; background:linear-gradient(transparent,#9bff9e,transparent); filter:blur(5px); opacity:.25; }
+.road-dash { position:absolute; top:5%; width:7px; height:27%; border-radius:10px; background:#d9ffe0; box-shadow:0 0 10px rgba(219,255,224,.18); transform:rotate(0deg); }
+.dash-1{left:41%}.dash-2{left:50%;top:34%;height:32%}.dash-3{left:59%;top:67%;height:24%}
+
+.hero-sign { position:absolute; right:-1%; bottom:27%; width:135px; min-height:145px; padding:17px 13px; border:5px solid #0b4932; border-radius:6px; background:linear-gradient(145deg,#0d7149,#063d2c); box-shadow:0 14px 25px rgba(0,0,0,.24), inset 0 0 0 2px rgba(153,255,172,.1); transform:rotate(-1deg); animation: signFloat 6s ease-in-out infinite; }
+.hero-sign::before { content:""; position:absolute; left:50%; top:100%; width:8px; height:80px; transform:translateX(-50%); background:#214b38; }
+.hero-sign strong { display:block; color:#d8ffd9; font:800 1rem/1.18 "Space Grotesk",sans-serif; letter-spacing:.2px; }
+.hero-sign strong::after { content:""; display:block; width:33px; height:5px; margin-top:11px; border-radius:99px; background:#79ff86; box-shadow:0 0 12px rgba(121,255,134,.7); }
+
+.hero-gps-reference { right:39%; bottom:34%; width:130px; height:130px; z-index:6; }
+.hero-gps-reference .gps-pin { width:58px; height:70px; border-radius:52% 52% 52% 0; transform:rotate(-45deg); background:linear-gradient(145deg,#d6ff78,#58e873 58%,#1c9f57); box-shadow:0 0 38px rgba(109,255,116,.72); animation: gpsMarkerFloat 3.2s ease-in-out infinite; }
+.hero-gps-reference .gps-pin span { transform:rotate(45deg); color:#063523; font-size:28px; }
+.hero-gps-reference .gps-ring { border-color:rgba(136,255,124,.7); }
+.hero-gps-reference .r1{width:78px;height:78px}.hero-gps-reference .r2{width:130px;height:130px}
+
+@keyframes heroSunPulse { 0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.06);opacity:1} }
+@keyframes birdFloat { 0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-8px)} }
+@keyframes towerBreath { 0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.015)} }
+@keyframes treeSway { 0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(1deg)} }
+@keyframes signFloat { 0%,100%{transform:rotate(-1deg) translateY(0)}50%{transform:rotate(1deg) translateY(-7px)} }
+@keyframes gpsMarkerFloat { 0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(-7px)} }
+
+@media (max-width:900px){
+    .hero-city-reference{width:520px;height:390px;right:-80px;opacity:.72}
+    .hero-sign{transform:scale(.8) rotate(-1deg);right:-1%;bottom:29%}
+    .hero-gps-reference{right:38%;bottom:31%}
+}
+@media (max-width:600px){
+    .hero-city-reference{width:440px;height:330px;right:-150px;opacity:.42}
+    .hero-sun{width:130px;height:130px}
+    .hero-sign{display:none}
+    .hero-gps-reference{right:37%;bottom:29%;transform:scale(.8)}
+}
+
+/* ================= CIVIC AI ASSISTANT ================= */
+/* Small launcher under the three Civic Statistics cards. */
+.civic-ai-launch-wrap{
+    grid-column:2;
+    justify-self:center;
+    width:min(230px,100%);
+    position:relative;
+    z-index:30;
+    margin-top:2px;
+}
+.civic-ai-launch{
+    width:100%;
+    min-height:64px;
+    border:1px solid rgba(25,195,125,.24);
+    border-radius:18px;
+    padding:9px 12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:linear-gradient(135deg,rgba(246,255,249,.98),rgba(228,250,237,.96));
+    color:#07563a;
+    box-shadow:0 10px 28px rgba(8,116,74,.10),inset 0 1px 0 rgba(255,255,255,.9);
+    cursor:pointer;
+    font:inherit;
+    text-align:left;
+    transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.civic-ai-launch:hover{transform:translateY(-3px);box-shadow:0 15px 34px rgba(8,116,74,.16);border-color:rgba(25,195,125,.42)}
+.civic-ai-launch:focus-visible{outline:3px solid rgba(25,195,125,.22);outline-offset:3px}
+.civic-ai-launch-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#d9fbea,#bdf2d6);box-shadow:inset 0 1px 0 #fff}
+.civic-ai-launch-icon svg{width:30px;height:30px;fill:none;stroke:#08744a;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.civic-ai-launch strong{display:block;font:800 .86rem/1.15 "Space Grotesk",sans-serif}
+.civic-ai-launch small{display:block;margin-top:3px;color:#5c8775;font-size:.67rem}
+.civic-ai-launch-arrow{margin-left:auto;font-size:1.1rem;font-weight:800;color:#08744a;transition:transform .2s ease}
+.civic-ai-launch:hover .civic-ai-launch-arrow{transform:translateX(3px)}
+
+/* ChatGPT-style civic assistant window. */
+.civic-ai-panel{
+    position:fixed;
+    z-index:10000;
+    left:50%;
+    top:50%;
+    width:min(430px,calc(100vw - 28px));
+    max-height:min(720px,calc(100vh - 28px));
+    transform:translate(-50%,-50%);
+    overflow:hidden;
+    border:1px solid rgba(25,195,125,.22);
+    border-radius:28px;
+    background:linear-gradient(145deg,#f7fff9,#e8faee);
+    box-shadow:0 28px 90px rgba(0,48,31,.30),0 0 0 9999px rgba(0,30,20,.38);
+    backdrop-filter:blur(22px);
+    animation:aiPanelIn .24s ease both;
+    text-align:left;
+}
+.civic-ai-panel[hidden]{display:none}
+.civic-ai-head{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:rgba(255,255,255,.68);border-bottom:1px solid rgba(15,118,80,.10)}
+.civic-ai-title{display:flex;align-items:center;gap:10px}
+.civic-ai-title strong{display:block;font:800 .9rem/1.2 "Space Grotesk",sans-serif;color:#073b2a}
+.civic-ai-title span{display:flex;align-items:center;gap:5px;margin-top:3px;color:#668d7d;font-size:.66rem}
+.civic-ai-title span i{width:6px;height:6px;border-radius:50%;background:#19c37d;box-shadow:0 0 8px rgba(25,195,125,.65)}
+.civic-ai-mini-avatar{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#caffdf,#73e9a9);color:#075d3f;font-size:1.05rem;box-shadow:0 7px 18px rgba(25,195,125,.16)}
+.civic-ai-close{border:0;background:#fff;color:#275747;width:34px;height:34px;border-radius:50%;font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,55,35,.08)}
+.civic-ai-close:hover{background:#dff8e9;color:#075d3f}
+.civic-ai-body{display:flex;flex-direction:column;min-height:0}
+.civic-ai-welcome{text-align:center;padding:18px 18px 10px}
+.civic-ai-big-avatar{width:70px;height:70px;margin:0 auto 10px;border-radius:24px;display:grid;place-items:center;background:radial-gradient(circle,#effff4 0 36%,#b9f5d0 37% 58%,#e6fff0 59%);color:#08744a;font-size:1.65rem;box-shadow:0 12px 30px rgba(25,195,125,.13);animation:aiAvatarFloat 3s ease-in-out infinite}
+.civic-ai-welcome h3{margin:0;color:#073b2a;font:800 1.25rem/1.2 "Space Grotesk",sans-serif}
+.civic-ai-welcome p{margin:7px auto 0;max-width:320px;color:#628777;font-size:.76rem;line-height:1.45}
+.civic-ai-messages{display:flex;flex-direction:column;gap:9px;max-height:225px;overflow:auto;padding:8px 16px 12px;scroll-behavior:smooth}
+.civic-ai-message{max-width:86%;padding:10px 12px;border-radius:16px;font-size:.78rem;line-height:1.45;box-shadow:0 3px 12px rgba(0,55,35,.05)}
+.civic-ai-message.bot{align-self:flex-start;background:rgba(255,255,255,.84);color:#164f35;border-bottom-left-radius:6px;border:1px solid rgba(25,195,125,.10)}
+.civic-ai-message.user{align-self:flex-end;background:#08744a;color:#fff;border-bottom-right-radius:6px}
+.civic-ai-suggestions{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}
+.civic-ai-suggestions button{border:1px solid #bce8cc;background:rgba(255,255,255,.78);color:#176b45;border-radius:999px;padding:7px 9px;font-size:.66rem;font-weight:700;cursor:pointer;transition:.18s ease}
+.civic-ai-suggestions button:hover{background:#dcf7e7;transform:translateY(-1px)}
+.civic-ai-form{display:flex;align-items:center;gap:7px;margin:0 12px 12px;padding:7px 7px 7px 11px;background:rgba(255,255,255,.9);border:1px solid #cfe5d7;border-radius:22px;box-shadow:0 8px 24px rgba(0,55,35,.07)}
+.civic-ai-plus{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#f1fbf5;color:#08744a;font-size:1.2rem;flex:0 0 30px}
+.civic-ai-form input{min-width:0;flex:1;border:0;background:transparent;outline:none;padding:7px 2px;color:#143f30;font:500 .78rem/1.2 "DM Sans",sans-serif}
+.civic-ai-form input::placeholder{color:#78a08f}
+.civic-ai-form input:focus{box-shadow:none}
+.civic-ai-form button{width:36px;height:36px;border:0;border-radius:50%;background:#08744a;color:#fff;cursor:pointer;font-size:1rem;box-shadow:0 7px 16px rgba(8,116,74,.22);transition:transform .18s ease,background .18s ease}
+.civic-ai-form button:hover{background:#0a8d59;transform:scale(1.05)}
+@keyframes aiPanelIn{from{opacity:0;transform:translate(-50%,-47%) scale(.97)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes aiAvatarFloat{50%{transform:translateY(-4px)}}
+
+@media(max-width:1120px){.stats-reference{grid-template-columns:repeat(2,minmax(0,1fr))}.civic-ai-launch-wrap{grid-column:1 / -1}}
+@media(max-width:600px){.stats-reference{grid-template-columns:1fr}.civic-ai-launch-wrap{grid-column:1;width:min(230px,100%)}.civic-ai-panel{width:calc(100vw - 20px);max-height:calc(100vh - 20px);border-radius:24px}.civic-ai-welcome{padding-top:14px}.civic-ai-big-avatar{width:58px;height:58px}.civic-ai-messages{max-height:190px}}
+@media(prefers-reduced-motion:reduce){.civic-ai-panel,.civic-ai-big-avatar{animation:none!important}}
+
+/* ================= FINAL CIVIC STATISTICS LAYOUT =================
+   Requested layout only: three larger statistics cards, with Civic AI
+   and Community Donation placed separately underneath. */
+.stats-reference {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.stats-reference .stat-card {
+    min-height: 320px;
+}
+
+.stats-reference .stat-icon-wrap {
+    width: 138px;
+    height: 138px;
+    margin-bottom: 12px;
+}
+
+.stats-reference .stat-icon-svg {
+    width: 108px;
+    height: 108px;
+}
+
+.stats-reference .icon-rays {
+    top: 35px;
+    left: 7px;
+    box-shadow: 122px 26px 0 #3fd6a0;
+}
+
+.stats-reference .pending-rays {
+    box-shadow: 122px 26px 0 #efbd36;
+}
+
+.stats-reference .resolved-rays {
+    box-shadow: 122px 26px 0 #0cae6d;
+}
+
+.civic-support-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin: 24px 0 0;
+    align-items: stretch;
+}
+
+.civic-support-grid .civic-ai-launch-wrap {
+    grid-column: auto;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.civic-support-grid .civic-ai-launch {
+    min-height: 320px;
+    height: 100%;
+    border-radius: 20px;
+    padding: 28px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    background:
+        radial-gradient(circle at 50% 22%, rgba(118,242,191,.18), transparent 110px),
+        linear-gradient(145deg, #ffffff 0%, #f7fcfa 58%, #eef9f5 100%);
+    box-shadow: 0 10px 30px rgba(8,73,50,.08), inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.civic-support-grid .civic-ai-launch-icon {
+    width: 96px;
+    height: 96px;
+    flex: 0 0 96px;
+    border-radius: 28px;
+    background: radial-gradient(circle, #d9fae9 0 45%, #c4f5da 46% 68%, #effff6 69%);
+    box-shadow: 0 12px 30px rgba(25,195,125,.15), inset 0 1px 0 #fff;
+}
+
+.civic-support-grid .civic-ai-launch-icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+.civic-support-grid .civic-ai-launch strong {
+    font-size: 1.25rem;
+}
+
+.civic-support-grid .civic-ai-launch small {
+    margin-top: 2px;
+    font-size: .82rem;
+}
+
+.civic-support-grid .civic-ai-launch-arrow {
+    margin: 2px 0 0;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #08744a;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.civic-support-card {
+    position: relative;
+    min-height: 320px;
+    width: 100%;
+    border: 1px solid rgba(18,91,68,.10);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 22%, rgba(118,242,191,.18), transparent 110px),
+        linear-gradient(145deg, #ffffff 0%, #f7fcfa 58%, #eef9f5 100%);
+    color: var(--ink);
+    box-shadow: 0 10px 30px rgba(8,73,50,.08), inset 0 1px 0 rgba(255,255,255,.95);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+}
+
+.civic-support-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 24px 50px rgba(8,73,50,.14), inset 0 1px 0 #fff;
+    border-color: rgba(25,195,125,.25);
+}
+
+.support-icon-wrap {
+    width: 96px;
+    height: 96px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 14px;
+    border-radius: 28px;
+    background: radial-gradient(circle, #d9fae9 0 45%, #c4f5da 46% 68%, #effff6 69%);
+    filter: drop-shadow(0 12px 12px rgba(10,104,71,.12));
+}
+
+.support-icon-wrap svg {
+    width: 78px;
+    height: 78px;
+}
+
+.civic-support-card > strong {
+    color: #075d3f;
+    font: 800 1.25rem/1.2 "Space Grotesk", sans-serif;
+}
+
+.support-subtitle {
+    margin-top: 7px;
+    color: #628777;
+    font-size: .82rem;
+    line-height: 1.45;
+    max-width: 310px;
+}
+
+.support-action {
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 15px;
+    border-radius: 999px;
+    background: linear-gradient(100deg,#e1faf1,#c9f4e5);
+    color: #17604a;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+@media (max-width: 1120px) {
+    .stats-reference { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .stats-reference .stat-card { min-height: 300px; }
+    .stats-reference .stat-icon-wrap { width: 120px; height: 120px; }
+    .stats-reference .stat-icon-svg { width: 96px; height: 96px; }
+    .civic-support-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .civic-support-grid .civic-ai-launch,
+    .civic-support-card { min-height: 300px; }
+}
+
+@media (max-width: 700px) {
+    .stats-reference { grid-template-columns: 1fr; }
+    .stats-reference .stat-card { min-height: 290px; }
+    .civic-support-grid { grid-template-columns: 1fr; gap: 16px; }
+    .civic-support-grid .civic-ai-launch,
+    .civic-support-card { min-height: 280px; }
+}
+
+
+/* ===== Community donation payment UI ===== */
+.donation-modal{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:20px;opacity:1;visibility:visible;transition:opacity .2s ease,visibility .2s ease}
+.donation-modal[aria-hidden="true"]{opacity:0;visibility:hidden;pointer-events:none}
+.donation-backdrop{position:absolute;inset:0;background:rgba(2,32,22,.58);backdrop-filter:blur(8px)}
+.donation-panel{position:relative;z-index:1;width:min(430px,100%);border:1px solid rgba(25,195,125,.25);border-radius:28px;background:linear-gradient(145deg,#f8fff9,#e8faef);box-shadow:0 30px 90px rgba(0,45,28,.28);padding:28px;text-align:center;transform:translateY(10px) scale(.98);transition:transform .22s ease}
+.donation-modal:not([aria-hidden="true"]) .donation-panel{transform:none}
+.donation-close{position:absolute;right:14px;top:14px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:#275747;font-size:25px;line-height:1;cursor:pointer;box-shadow:0 5px 16px rgba(0,55,35,.08)}
+.donation-close:hover{background:#dff8e9;color:#075d3f}
+.donation-panel-icon{width:70px;height:70px;margin:0 auto 10px;border-radius:22px;display:grid;place-items:center;background:#073b2a;box-shadow:0 12px 30px rgba(8,116,74,.22)}
+.donation-panel-icon svg{width:42px;height:42px;fill:#63e66d;stroke:#effff4;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.donation-kicker{display:block;color:#0f7650;font:800 .68rem/1.2 "Space Grotesk",sans-serif;letter-spacing:3px}
+.donation-panel h2{margin:7px 0 6px;color:#073b2a;font:800 1.55rem/1.15 "Space Grotesk",sans-serif}
+.donation-panel>p{margin:0 auto 18px;color:#5c8775;font-size:.82rem;line-height:1.5;max-width:330px}
+.donation-amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.donation-amounts button{border:1px solid #bce8cc;background:#fff;color:#176b45;border-radius:13px;padding:10px 6px;font-weight:800;cursor:pointer;transition:.18s ease}
+.donation-amounts button:hover,.donation-amounts button.selected{background:#d9f8e6;border-color:#55cf8d;transform:translateY(-1px)}
+.donation-custom-label{display:block;text-align:left;margin:0 0 6px 3px;color:#275747;font-size:.72rem;font-weight:800}
+.donation-input-wrap{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #cfe5d7;border-radius:14px;padding:0 13px;margin-bottom:12px;box-shadow:inset 0 1px 2px rgba(0,55,35,.03)}
+.donation-input-wrap span{color:#08744a;font-weight:900;font-size:1rem}.donation-input-wrap input{width:100%;border:0;outline:0;background:transparent;padding:12px 0;color:#143f30;font:800 1rem/1 "DM Sans",sans-serif}
+.donation-pay{width:100%;border:0;border-radius:15px;padding:13px 16px;background:linear-gradient(135deg,#08744a,#0fbf78);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 10px 24px rgba(8,116,74,.22);transition:.18s ease}
+.donation-pay:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(8,116,74,.28)}
+.donation-note{display:block;margin:12px 4px 0;color:#6b8f80;font-size:.66rem;line-height:1.45}
+@media(max-width:600px){.donation-panel{padding:24px 18px;border-radius:23px}.donation-amounts{gap:6px}.donation-amounts button{padding:9px 4px}}
+
+/* ===== Donation payment app chooser — added only to the donation flow ===== */
+.payment-method-heading{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 8px;color:#275747;font-size:.72rem;font-weight:900}
+.payment-method-heading small{font-size:.62rem;color:#76a08d;font-weight:800}
+.payment-methods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:14px;max-height:178px;overflow:auto;padding:2px}
+.payment-method{min-height:66px;border:1px solid #cfe9d8;border-radius:14px;background:rgba(255,255,255,.92);color:#174d39;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;cursor:pointer;font:800 .63rem/1.1 "DM Sans",sans-serif;transition:.18s ease;box-shadow:0 3px 10px rgba(0,80,45,.04)}
+.payment-method:hover{transform:translateY(-2px);border-color:#73d9a0;box-shadow:0 8px 18px rgba(0,120,75,.11)}
+.payment-method.selected{border-color:#19c37d;background:#e7faef;box-shadow:0 0 0 2px rgba(25,195,125,.12),0 8px 18px rgba(0,120,75,.10)}
+.payment-logo{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font:900 .78rem/1 Arial,sans-serif;background:#073b2a;color:#63e66d;box-shadow:0 4px 10px rgba(0,65,40,.14)}
+.gpay-logo{background:linear-gradient(135deg,#fff,#e7fff0);color:#0a9a60;border:1px solid #b8eccc}.phonepe-logo{background:#f1eaff;color:#5d24b4}.paytm-logo{background:#e9f8ff;color:#0877c9}.bhim-logo{background:#fff7df;color:#a96b00}.bank-logo{background:#073b2a;color:#8ff7b8}
+@media(max-width:600px){.payment-methods{grid-template-columns:repeat(3,minmax(0,1fr));max-height:160px}.payment-method{min-height:60px;font-size:.58rem}.payment-logo{width:25px;height:25px}}
+
+
+/* ================================================================
+   FINAL LOGO — supplied Civic Connect camera/location-pin mark
+   Only the navbar logo is changed; the existing wordmark typography
+   and all other website styling remain untouched.
+   ================================================================ */
+.brand-mark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-logo-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 0 10px rgba(25, 195, 125, 0.16));
+}
+
+.brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    border: 1px solid rgba(99, 230, 109, 0.28);
+    opacity: .7;
+    pointer-events: none;
+    animation: logoPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(.98); opacity: .35; }
+    50% { transform: scale(1.02); opacity: .85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand-mark::after { animation: none; }
+}
+
+/* ===== Payment brand images — cropped from the user's supplied references only ===== */
+.payment-logo-image{display:block;width:64px;height:32px;object-fit:contain;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important}
+.gpay-image{width:42px;height:34px}.axis-image{width:72px;height:28px}.paytm-image{width:70px;height:27px}
+@media(max-width:600px){.payment-logo-image{height:28px}.gpay-image{width:38px}.axis-image{width:62px}.paytm-image{width:62px}}

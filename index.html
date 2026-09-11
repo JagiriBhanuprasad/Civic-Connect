@@ -14,11 +14,7 @@
         <nav class="cinematic-nav" aria-label="Main navigation">
             <a class="brand" href="#home" aria-label="Civic Connect home">
                 <span class="brand-mark" aria-hidden="true">
-                    <span class="brand-ring"></span>
-                    <span class="brand-building b1"></span>
-                    <span class="brand-building b2"></span>
-                    <span class="brand-building b3"></span>
-                    <span class="brand-leaf">⌁</span>
+                    <img class="brand-logo-img" src="civic-connect-logo.png" alt="">
                 </span>
                 <span class="brand-copy">
                     <strong>Civic <em>Connect</em></strong>
@@ -86,23 +82,41 @@
                 </div>
             </div>
 
-            <div class="hero-city" aria-hidden="true">
-                <div class="city-skyline">
-                    <span style="--h:42%;--x:4%;--w:7%"></span>
-                    <span style="--h:64%;--x:13%;--w:8%"></span>
-                    <span style="--h:34%;--x:23%;--w:6%"></span>
-                    <span style="--h:76%;--x:31%;--w:8%"></span>
-                    <span style="--h:50%;--x:43%;--w:7%"></span>
-                    <span style="--h:69%;--x:53%;--w:9%"></span>
-                    <span style="--h:40%;--x:66%;--w:7%"></span>
-                    <span style="--h:80%;--x:76%;--w:8%"></span>
-                    <span style="--h:48%;--x:88%;--w:7%"></span>
+            <div class="hero-city hero-city-reference" aria-hidden="true">
+                <div class="hero-sun"></div>
+                <div class="hero-haze haze-a"></div>
+                <div class="hero-haze haze-b"></div>
+                <div class="hero-birds"><i></i><i></i><i></i></div>
+
+                <div class="hero-city-backdrop">
+                    <span class="tower tower-a"><b></b></span>
+                    <span class="tower tower-b"><b></b></span>
+                    <span class="tower tower-c"><b></b></span>
+                    <span class="tower tower-d"><b></b></span>
+                    <span class="tower tower-e"><b></b></span>
+                    <span class="tower tower-f"><b></b></span>
+                    <span class="tower tower-g"><b></b></span>
+                    <span class="tower tower-h"><b></b></span>
                 </div>
-                <div class="hero-road"></div>
-                <div class="hero-gps">
+
+                <div class="hero-trees trees-back">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="hero-trees trees-front">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+
+                <div class="hero-road hero-road-reference">
+                    <span class="road-glow"></span>
+                    <span class="road-dash dash-1"></span>
+                    <span class="road-dash dash-2"></span>
+                    <span class="road-dash dash-3"></span>
+                </div>
+
+                <div class="hero-gps hero-gps-reference">
                     <span class="gps-ring r1"></span>
                     <span class="gps-ring r2"></span>
-                    <span class="gps-pin">●</span>
+                    <span class="gps-pin"><span>⌖</span></span>
                 </div>
             </div>
         </section>
@@ -302,6 +316,77 @@
                     <strong class="stat-label">Resolved</strong>
                     <span class="stat-action"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="18" width="4" height="8" rx="1"/><rect x="14" y="13" width="4" height="13" rx="1"/><rect x="22" y="7" width="4" height="19" rx="1"/></svg>Tap to view progress</span>
                 </button>
+
+
+            </div>
+
+            <!-- Separate Civic AI + Community Support tools -->
+            <div class="civic-support-grid" aria-label="Civic support tools">
+                <div class="civic-ai-launch-wrap" id="civicAiCard">
+                    <button class="civic-ai-launch" id="civicAiButton" type="button" aria-expanded="false" aria-controls="civicAiPanel">
+                        <span class="civic-ai-launch-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M15 17h18v13H25l-6 5v-5h-4Z"/><circle cx="21" cy="23" r="1.7"/><circle cx="27" cy="23" r="1.7"/></svg>
+                        </span>
+                        <span><strong>Civic AI</strong><small>Ask anything</small></span>
+                        <span class="civic-ai-launch-arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <div class="civic-ai-panel" id="civicAiPanel" hidden>
+                        <div class="civic-ai-head">
+                            <div class="civic-ai-title">
+                                <span class="civic-ai-mini-avatar" aria-hidden="true">✦</span>
+                                <div>
+                                    <strong>Civic AI Assistant</strong>
+                                    <span><i></i> Online · Here to help</span>
+                                </div>
+                            </div>
+                            <button class="civic-ai-close" id="civicAiClose" type="button" aria-label="Close Civic AI">×</button>
+                        </div>
+                        <div class="civic-ai-body">
+                            <div class="civic-ai-welcome">
+                                <div class="civic-ai-big-avatar" aria-hidden="true">✦</div>
+                                <h3>How can I help you?</h3>
+                                <p>Ask anything about civic issues, reporting, or Civic Connect.</p>
+                            </div>
+                            <div class="civic-ai-messages" id="civicAiMessages" aria-live="polite">
+                                <div class="civic-ai-message bot">Hi! I'm Civic AI. How can I help you today?</div>
+                            </div>
+                            <div class="civic-ai-suggestions" aria-label="Suggested questions">
+                                <button type="button" data-ai-question="How do I report a problem?">How do I report a problem?</button>
+                                <button type="button" data-ai-question="How does GPS work?">How does GPS work?</button>
+                                <button type="button" data-ai-question="How do I track my report?">Track my report</button>
+                            </div>
+                            <form class="civic-ai-form" id="civicAiForm">
+                                <span class="civic-ai-plus" aria-hidden="true">+</span>
+                                <input id="civicAiInput" type="text" placeholder="Ask me anything..." autocomplete="off" aria-label="Ask Civic AI a question">
+                                <button type="submit" aria-label="Send message">➤</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="civic-support-card donation-card" type="button" id="donationCard" aria-label="Community donations">
+                    <span class="support-icon-wrap" aria-hidden="true">
+                        <svg viewBox="0 0 96 96" role="img">
+                            <defs>
+                                <linearGradient id="donationGreen" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#62e8a8"/>
+                                    <stop offset="1" stop-color="#07885a"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="48" cy="48" r="38" fill="#d9fae9"/>
+                            <path d="M25 42h46v29H25z" fill="url(#donationGreen)"/>
+                            <path d="M22 37h52v9H22z" fill="#0a6f4a"/>
+                            <path d="M30 37c0-9 8-16 18-16s18 7 18 16" fill="none" stroke="#dfffee" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M39 46v25M57 46v25" stroke="#dfffee" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="48" cy="56" r="7" fill="#b8ffd7"/>
+                            <path d="M48 51v10M44 56h8" stroke="#07885a" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <strong>Support the Community</strong>
+                    <span class="support-subtitle">Help fund cleaner, safer neighbourhoods.</span>
+                    <span class="support-action">Make a donation <span aria-hidden="true">→</span></span>
+                </button>
             </div>
         </section>
 
@@ -418,6 +503,61 @@
     </footer>
 
     <div id="toast" role="status" aria-live="polite"></div>
+
+    <div class="donation-modal" id="donationModal" aria-hidden="true">
+        <div class="donation-backdrop" data-close-donation></div>
+        <div class="donation-panel" role="dialog" aria-modal="true" aria-labelledby="donationTitle">
+            <button class="donation-close" id="donationClose" type="button" aria-label="Close donation">×</button>
+            <div class="donation-panel-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64"><path d="M12 28h40v24H12z"/><path d="M9 23h46v8H9z"/><path d="M18 23c0-8 6-14 14-14s14 6 14 14" fill="none"/><path d="M25 31v21M39 31v21"/><circle cx="32" cy="42" r="6"/><path d="M32 38v8M28 42h8"/></svg>
+            </div>
+            <span class="donation-kicker">COMMUNITY SUPPORT</span>
+            <h2 id="donationTitle">Support Our City</h2>
+            <p>Choose an amount and your preferred UPI or bank app.</p>
+            <div class="donation-amounts" role="group" aria-label="Donation amount">
+                <button type="button" data-donation-amount="10">₹10</button>
+                <button type="button" data-donation-amount="25">₹25</button>
+                <button type="button" data-donation-amount="50">₹50</button>
+                <button type="button" data-donation-amount="100">₹100</button>
+            </div>
+            <label class="donation-custom-label" for="donationAmount">Amount</label>
+            <div class="donation-input-wrap"><span>₹</span><input id="donationAmount" type="number" min="1" step="1" value="10" inputmode="numeric" aria-label="Donation amount"></div>
+
+            <div class="payment-method-heading"><span>Choose payment app</span><small>UPI / Bank</small></div>
+            <div class="payment-methods" role="group" aria-label="Payment method">
+                <button type="button" class="payment-method selected" data-pay-method="gpay" aria-label="Google Pay">
+                    <img class="payment-logo payment-logo-image gpay-image" src="payment-logos/google-pay.png" alt="Google Pay logo"><span>Google Pay</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="phonepe" aria-label="PhonePe">
+                    <span class="payment-logo phonepe-logo">पे</span><span>PhonePe</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="paytm" aria-label="Paytm">
+                    <img class="payment-logo payment-logo-image paytm-image" src="payment-logos/paytm.png" alt="Paytm logo"><span>Paytm</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="bhim" aria-label="BHIM">
+                    <span class="payment-logo bhim-logo">BH</span><span>BHIM</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="axis" aria-label="Axis Bank">
+                    <img class="payment-logo payment-logo-image axis-image" src="payment-logos/axis-bank.png" alt="Axis Bank logo"><span>Axis Bank</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="hdfc" aria-label="HDFC Bank">
+                    <span class="payment-logo bank-logo">H</span><span>HDFC Bank</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="sbi" aria-label="State Bank of India">
+                    <span class="payment-logo bank-logo">S</span><span>SBI</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="icici" aria-label="ICICI Bank">
+                    <span class="payment-logo bank-logo">I</span><span>ICICI Bank</span>
+                </button>
+                <button type="button" class="payment-method" data-pay-method="other" aria-label="Other UPI or bank app">
+                    <span class="payment-logo bank-logo">+</span><span>Other UPI</span>
+                </button>
+            </div>
+
+            <button class="donation-pay" id="donationPay" type="button">Pay ₹10 securely <span>→</span></button>
+            <small class="donation-note">Your selected app opens on supported phones. Bank choices use the standard UPI payment flow. Add the real Civic Connect recipient UPI ID in script.js before deployment.</small>
+        </div>
+    </div>
 
     <div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
         <button type="button" class="photo-lightbox-close" id="photoLightboxClose" aria-label="Close lightbox">✕</button>
