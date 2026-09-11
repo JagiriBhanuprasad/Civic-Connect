@@ -1,318 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Starter — A Modern Website</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --accent: #6366f1;
-      --accent-hover: #818cf8;
-      --radius: 12px;
-      --max-width: 1200px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      z-index: 100;
-    }
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.25rem;
-      background: linear-gradient(135deg, var(--accent), #ec4899);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* Hero */
-    .hero {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 6rem 1.5rem 4rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.75rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--accent), #ec4899);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      padding: 0.85rem 1.75rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .btn-secondary:hover { background: var(--surface); }
-
-    /* Sections */
-    section { padding: 5rem 1.5rem; }
-    .container { max-width: var(--max-width); margin: 0 auto; }
-    .section-title {
-      text-align: center;
-      font-size: 2.25rem;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-
-    /* Features */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .feature-card {
-      background: var(--surface);
-      padding: 2rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--accent), #ec4899);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .feature-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-    .feature-card p { color: var(--muted); }
-
-    /* About */
-    .about { background: var(--surface); }
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .about-image {
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, var(--accent), #ec4899);
-      border-radius: var(--radius);
-    }
-    .about-text h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .about-text p { color: var(--muted); margin-bottom: 1rem; }
-
-    /* Contact */
-    .contact-form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.85rem 1rem;
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 1rem;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .contact-form textarea { min-height: 120px; resize: vertical; }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .about-content { grid-template-columns: 1fr; }
-      .hero { padding: 4rem 1.5rem 3rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b3d2e">
+    <title>Civic Connect</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <div class="logo">Starter</div>
-      <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <!-- ================= CINEMATIC ECO NAVBAR ================= -->
+    <header class="site-header">
+        <nav class="cinematic-nav" aria-label="Main navigation">
+            <a class="brand" href="#home" aria-label="Civic Connect home">
+                <span class="brand-mark" aria-hidden="true">
+                    <span class="brand-ring"></span>
+                    <span class="brand-building b1"></span>
+                    <span class="brand-building b2"></span>
+                    <span class="brand-building b3"></span>
+                    <span class="brand-leaf">⌁</span>
+                </span>
+                <span class="brand-copy">
+                    <strong>Civic <em>Connect</em></strong>
+                </span>
+            </a>
+
+            <div class="nav-links">
+                <a class="active" href="#home">Home</a>
+                <a href="#report">Report Issue</a>
+                <a href="#issues">Issues</a>
+                <a href="#statistics">Statistics</a>
+            </div>
+
+            <a class="nav-cta" href="#report">
+                <span class="cta-icon">↗</span>
+                <span>Report Now</span>
+            </a>
+
+            <button class="nav-menu" id="navMenu" type="button" aria-label="Open navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+        <div class="nav-progress" aria-hidden="true"></div>
+    </header>
+
+    <main>
+        <!-- ================= HERO ================= -->
+        <section id="home">
+            <div class="hero-atmosphere" aria-hidden="true">
+                <span class="hero-orb orb-a"></span>
+                <span class="hero-orb orb-b"></span>
+                <span class="hero-orb orb-c"></span>
+                <span class="hero-leaf leaf-1">✦</span>
+                <span class="hero-leaf leaf-2">✦</span>
+                <span class="hero-leaf leaf-3">✦</span>
+            </div>
+
+            <div class="hero-content">
+                <span class="hero-tag">🌱 YOUR COMMUNITY. YOUR VOICE.</span>
+                <h2>Make Your City <span>Better</span></h2>
+                <p>
+                    Report civic problems, track their progress,
+                    and help build a cleaner, safer, and greener
+                    community for everyone.
+                </p>
+                <div class="hero-actions">
+                    <button id="reportButton">Report an Issue <span>→</span></button>
+                    <a href="#issues" class="hero-secondary">Explore Community Issues</a>
+                </div>
+                <div class="hero-trust">
+                    <span>● LIVE COMMUNITY PLATFORM</span>
+                    <span>•</span>
+                    <span>GPS ENABLED</span>
+                </div>
+            </div>
+
+            <div class="hero-city" aria-hidden="true">
+                <div class="city-skyline">
+                    <span style="--h:42%;--x:4%;--w:7%"></span>
+                    <span style="--h:64%;--x:13%;--w:8%"></span>
+                    <span style="--h:34%;--x:23%;--w:6%"></span>
+                    <span style="--h:76%;--x:31%;--w:8%"></span>
+                    <span style="--h:50%;--x:43%;--w:7%"></span>
+                    <span style="--h:69%;--x:53%;--w:9%"></span>
+                    <span style="--h:40%;--x:66%;--w:7%"></span>
+                    <span style="--h:80%;--x:76%;--w:8%"></span>
+                    <span style="--h:48%;--x:88%;--w:7%"></span>
+                </div>
+                <div class="hero-road"></div>
+                <div class="hero-gps">
+                    <span class="gps-ring r1"></span>
+                    <span class="gps-ring r2"></span>
+                    <span class="gps-pin">●</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= REPORT FORM ================= -->
+        <section id="report">
+            <span class="section-tag">SPEAK UP</span>
+            <h2>Report <span class="report-title-accent">a Problem</span></h2>
+            <p class="section-subtitle">
+                Found a problem in your community?
+                Let us know so it can be addressed.
+            </p>
+
+            <form id="issueForm">
+                <label for="issueTitle">Problem Title</label>
+                <input type="text" id="issueTitle" placeholder="Enter a short and clear title (e.g. Pothole on Main Road)" required>
+
+                <label for="issueCategory">Select Category</label>
+                <select id="issueCategory" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="Pothole / Road Damage">Pothole / Road Damage</option>
+                    <option value="Garbage / Waste">Garbage / Waste</option>
+                    <option value="Street Light">Street Light</option>
+                    <option value="Water / Drainage">Water / Drainage</option>
+                    <option value="Traffic / Parking">Traffic / Parking</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="issueLocation">Problem Location</label>
+                <div class="location-row">
+                    <div class="maps-location-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 56" role="img">
+                            <path fill="#34A853" d="M24 55S4 35.2 4 20.7C4 9.5 12.9 1 24 1s20 8.5 20 19.7C44 35.2 24 55 24 55z"/>
+                            <path fill="#4285F4" d="M24 1c-6.2 0-11.8 2.8-15.5 7.2l10.8 7.1c1.4-.8 3-1.3 4.7-1.3 2.7 0 5.1 1.2 6.7 3.1l8.6-6.7C35.6 4.6 30.1 1 24 1z"/>
+                            <path fill="#FBBC04" d="M8.5 8.2C5.7 11.6 4 15.9 4 20.7c0 5.4 2.2 11 5.3 15.5l8.2-10.1c-1.7-1.5-2.8-3.7-2.8-6.2 0-2.2.8-4.2 2.2-5.8L8.5 8.2z"/>
+                            <path fill="#EA4335" d="M17 14.1c1.8-2 4.3-3.2 7-3.2 2.6 0 5 1.1 6.7 2.9l4.7-3.6C31.6 5.9 27.9 4 24 4c-5.4 0-10.1 2.6-12.9 6.7l5.9 3.9z"/>
+                            <circle cx="24" cy="21" r="6.4" fill="#fff"/>
+                            <circle cx="24" cy="21" r="3.1" fill="#EA4335"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="issueLocation" placeholder="Search location or click on the map" required>
+                    <button type="button" id="getLocationBtn" title="Use my current location" aria-label="Use current GPS location"><span class="crosshair-icon">⌖</span><span class="use-location-text">Use My Location</span></button>
+                </div>
+
+                <div class="gps-capsule" id="gpsCapsule">
+                    <div class="gps-radar" aria-hidden="true">
+                        <span></span><span></span><span></span><b>⌖</b>
+                    </div>
+                    <div>
+                        <strong id="gpsCapsuleTitle">Pin your exact spot</strong>
+                        <p id="gpsCapsuleText">One tap finds your location and places the report there.</p>
+                    </div>
+                    <i class="gps-live-dot" aria-hidden="true"></i>
+                </div>
+
+                <p id="locationStatus" class="location-status" aria-live="polite"></p>
+                <div id="mapPreview" class="map-preview hidden"></div>
+
+                <label for="issueDescription">Problem Description</label>
+                <textarea id="issueDescription" placeholder="Provide more details about the problem (e.g. what happened, when, any extra info)" required></textarea>
+
+                <div class="photo-upload-group">
+                    <label class="photo-upload-title" for="issuePhotos">Add Photos <span>(Optional)</span></label>
+                    <div class="photo-upload-box" id="photoUploadBox">
+                        <input type="file" id="issuePhotos" accept="image/*" multiple hidden>
+                        <label for="issuePhotos" class="photo-upload-label">
+                            <span class="photo-upload-icon" aria-hidden="true">▧</span>
+                            <strong>Click to upload photos or drag and drop</strong>
+                            <span>You can add multiple photos (JPG, PNG, up to 5MB each)</span>
+                        </label>
+                    </div>
+                    <div id="photoPreview" class="photo-preview"></div>
+                </div>
+
+                <button type="submit" class="submit-problem"><span class="submit-icon">➤</span> Submit Problem</button>
+            </form>
+        </section>
+
+        <!-- ================= ISSUES ================= -->
+        <section id="issues">
+            <span class="section-tag">COMMUNITY REPORTS</span>
+            <h2>Reported Issues</h2>
+            <p class="section-subtitle">
+                See civic issues reported by members of the community.
+            </p>
+
+            <div class="issue-controls">
+                <label for="searchInput" class="sr-only">Search Issues</label>
+                <input type="text" id="searchInput" placeholder="Search Issues">
+
+                <label for="filterCategory" class="sr-only">Filter by Category</label>
+                <select id="filterCategory">
+                    <option value="All">All Issues</option>
+                    <option value="Pothole / Road Damage">Potholes / Roads</option>
+                    <option value="Garbage / Waste">Garbage</option>
+                    <option value="Street Light">Street Lights</option>
+                    <option value="Water / Drainage">Water / Drainage</option>
+                    <option value="Traffic / Parking">Traffic / Parking</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div id="issueContainer" aria-live="polite">
+                <div class="no-issues">
+                    <p><strong>No issues reported yet.</strong></p>
+                    <p>Be the first to report a civic issue in your community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= STATISTICS ================= -->
+        <section id="statistics">
+            <span class="section-tag">COMMUNITY IMPACT</span>
+            <h2>Civic Statistics</h2>
+            <p class="section-subtitle">Track the impact of community reporting.</p>
+
+            <div class="stats stats-reference" aria-label="Civic statistics">
+                <button class="stat-card stat-total" type="button" data-stat-filter="all">
+                    <span class="stat-icon-wrap" aria-hidden="true">
+                        <span class="icon-rays"></span>
+                        <svg class="stat-icon-svg" viewBox="0 0 120 120" role="img">
+                            <defs>
+                                <linearGradient id="clipPaper" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#ffffff"/>
+                                    <stop offset="1" stop-color="#dff7ef"/>
+                                </linearGradient>
+                                <linearGradient id="clipGreen" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#3de59a"/>
+                                    <stop offset="1" stop-color="#07875b"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="23" y="24" width="58" height="72" rx="9" fill="#aeeed9" opacity=".48"/>
+                            <rect x="28" y="19" width="58" height="72" rx="8" fill="url(#clipPaper)" stroke="#35c990" stroke-width="2.5"/>
+                            <rect x="45" y="12" width="25" height="13" rx="6" fill="url(#clipGreen)"/>
+                            <circle cx="57.5" cy="14" r="4" fill="#baffdf" opacity=".9"/>
+                            <rect x="40" y="39" width="30" height="4" rx="2" fill="#27b987"/>
+                            <rect x="40" y="50" width="35" height="4" rx="2" fill="#27b987" opacity=".9"/>
+                            <rect x="40" y="61" width="27" height="4" rx="2" fill="#27b987" opacity=".9"/>
+                            <circle cx="78" cy="80" r="17" fill="url(#clipGreen)"/>
+                            <path d="M78 72v11" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="78" cy="88" r="2.3" fill="white"/>
+                        </svg>
+                    </span>
+                    <span class="stat-number" id="totalIssues">0</span>
+                    <strong class="stat-label">Total Issues</strong>
+                    <span class="stat-action"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16s4.5-7 12-7 12 7 12 7-4.5 7-12 7S4 16 4 16Z"/><circle cx="16" cy="16" r="3.5"/></svg>Tap to view progress</span>
+                </button>
+
+                <button class="stat-card stat-pending" type="button" data-stat-filter="pending">
+                    <span class="stat-icon-wrap" aria-hidden="true">
+                        <span class="icon-rays pending-rays"></span>
+                        <svg class="stat-icon-svg" viewBox="0 0 120 120" role="img">
+                            <defs>
+                                <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+                                    <stop offset="1" stop-color="#b8eee0" stop-opacity=".75"/>
+                                </linearGradient>
+                                <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#ffd76a"/>
+                                    <stop offset="1" stop-color="#e7a62c"/>
+                                </linearGradient>
+                                <linearGradient id="hourGreen" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#39d894"/>
+                                    <stop offset="1" stop-color="#087651"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="28" y="18" width="64" height="10" rx="5" fill="url(#hourGreen)"/>
+                            <rect x="28" y="92" width="64" height="10" rx="5" fill="url(#hourGreen)"/>
+                            <path d="M38 28c0 17 8 18 22 28-14 10-22 11-22 36h44c0-25-8-26-22-36 14-10 22-11 22-28Z" fill="url(#glass)" stroke="#7ac9b6" stroke-width="2"/>
+                            <path d="M42 31h36c0 10-5 14-18 22-13-8-18-12-18-22Z" fill="#f2c34e" opacity=".9"/>
+                            <path d="M42 89h36c0-10-5-14-18-22-13 8-18 12-18 22Z" fill="url(#gold)"/>
+                            <path d="M57 51v16" stroke="#f0b83b" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="stat-number" id="pendingIssues">0</span>
+                    <strong class="stat-label">Pending</strong>
+                    <span class="stat-action pending-action"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v8l5 3"/></svg>Tap to view progress</span>
+                </button>
+
+                <button class="stat-card stat-resolved" type="button" data-stat-filter="resolved">
+                    <span class="stat-icon-wrap" aria-hidden="true">
+                        <span class="icon-rays resolved-rays"></span>
+                        <svg class="stat-icon-svg" viewBox="0 0 120 120" role="img">
+                            <defs>
+                                <linearGradient id="shieldGreen" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#4be89d"/>
+                                    <stop offset=".5" stop-color="#0bb96f"/>
+                                    <stop offset="1" stop-color="#06734d"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="60" cy="60" r="38" fill="#c7f8e5" opacity=".58"/>
+                            <path d="M60 20 91 31v25c0 20-13 34-31 44C42 90 29 76 29 56V31Z" fill="url(#shieldGreen)" stroke="#078256" stroke-width="3"/>
+                            <path d="M43 59 55 70 78 45" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="stat-number" id="resolvedIssues">0</span>
+                    <strong class="stat-label">Resolved</strong>
+                    <span class="stat-action"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="18" width="4" height="8" rx="1"/><rect x="14" y="13" width="4" height="13" rx="1"/><rect x="22" y="7" width="4" height="19" rx="1"/></svg>Tap to view progress</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= PROGRESS TRACKER ================= -->
+        <div class="progress-modal" id="progressModal" aria-hidden="true">
+            <div class="progress-modal-backdrop" data-close-progress></div>
+            <div class="progress-panel" role="dialog" aria-modal="true" aria-labelledby="progressTitle">
+                <button class="progress-close" id="progressClose" type="button" aria-label="Close progress tracker">✕</button>
+                <span class="section-tag">LIVE PROGRESS TRACKER</span>
+                <h2 id="progressTitle">Civic Work Progress</h2>
+                <p class="progress-intro">See how reported problems are moving from report to resolution.</p>
+
+                <div class="progress-overview" id="progressOverview"></div>
+
+                <!-- ================= CIVIC RESPONSE ANIMATION ================= -->
+                <section class="repair-scene" aria-label="Worker repairing a pothole">
+                    <div class="repair-scene-top">
+                        <div>
+                            <span class="repair-eyebrow">CIVIC RESPONSE IN ACTION</span>
+                            <h3>From reported pothole to repaired road</h3>
+                        </div>
+                        <span class="repair-live"><i></i> LIVE WORKFLOW</span>
+                    </div>
+
+                    <div class="repair-animation">
+                        <div class="repair-sky-glow"></div>
+                        <div class="repair-cloud cloud-a"></div>
+                        <div class="repair-cloud cloud-b"></div>
+                        <div class="repair-road">
+                            <span class="road-line line-a"></span>
+                            <span class="road-line line-b"></span>
+                            <span class="road-line line-c"></span>
+                            <span class="road-edge"></span>
+                            <div class="pothole">
+                                <span class="pothole-rim"></span>
+                                <span class="pothole-fill"></span>
+                            </div>
+                        </div>
+
+                        <div class="safety-cone cone-left"><span></span></div>
+                        <div class="safety-cone cone-right"><span></span></div>
+
+                        <div class="worker-shadow"></div>
+                        <div class="road-worker">
+                            <div class="worker-head">
+                                <span class="worker-helmet"></span>
+                                <span class="worker-face"></span>
+                            </div>
+                            <div class="worker-body">
+                                <span class="worker-vest-line"></span>
+                                <span class="worker-pocket"></span>
+                            </div>
+                            <div class="worker-arm arm-back"></div>
+                            <div class="worker-arm arm-front"></div>
+                            <div class="worker-leg leg-back"></div>
+                            <div class="worker-leg leg-front"></div>
+                            <div class="worker-boot boot-back"></div>
+                            <div class="worker-boot boot-front"></div>
+                        </div>
+
+                        <div class="repair-shovel">
+                            <span class="shovel-handle"></span>
+                            <span class="shovel-grip"></span>
+                            <span class="shovel-blade"></span>
+                        </div>
+                        <span class="repair-dust dust-a"></span>
+                        <span class="repair-dust dust-b"></span>
+                        <span class="repair-dust dust-c"></span>
+
+                        <div class="repair-check">✓</div>
+                        <div class="repair-caption">
+                            <span class="repair-step-dot"></span>
+                            <strong>Repair crew working</strong>
+                            <small>Pothole is being safely filled and restored.</small>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="tracker-heading">
+                    <div>
+                        <strong>My Reported Issues</strong>
+                        <span>Track the complete progress of problems you reported.</span>
+                    </div>
+                    <span class="tracker-badge" id="myReportCount">0 reports</span>
+                </div>
+
+                <div class="my-reports" id="myReports"></div>
+            </div>
+        </div>
+
+        <!-- ================= ABOUT ================= -->
+        <section id="about">
+            <span class="section-tag">ABOUT US</span>
+            <h2>Connecting Citizens With Their Community</h2>
+            <p class="section-subtitle">
+                Civic Connect gives citizens a simple way to report
+                local problems and follow their progress. Together,
+                small reports can create meaningful change.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Civic <span>Connect</span></h3>
+        <p>Your voice. Your city. Your community.</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#report">Report Issue</a>
+            <a href="#issues">Issues</a>
+            <a href="#statistics">Statistics</a>
+        </div>
+        <p>© 2026 Civic Connect. All rights reserved.</p>
+    </footer>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+        <button type="button" class="photo-lightbox-close" id="photoLightboxClose" aria-label="Close lightbox">✕</button>
+        <img id="lightboxImage" src="" alt="Issue photo preview">
     </div>
-  </nav>
 
-  <header class="hero">
-    <h1>Build something <span>beautiful</span><br/>in minutes, not months.</h1>
-    <p>A clean, responsive website template ready to customize. Perfect for portfolios, landing pages, and small businesses.</p>
-    <div class="cta-group">
-      <a href="#contact" class="btn btn-primary">Get Started</a>
-      <a href="#features" class="btn btn-secondary">Learn More</a>
-    </div>
-  </header>
-
-  <section id="features">
-    <div class="container">
-      <h2 class="section-title">Everything you need</h2>
-      <p class="section-subtitle">Powerful features to help you succeed</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Lightning Fast</h3>
-          <p>Optimized for performance with minimal dependencies and clean code.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Fully Responsive</h3>
-          <p>Looks great on any device, from phones to large desktop screens.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎨</div>
-          <h3>Easy to Customize</h3>
-          <p>Simple CSS variables make it easy to match your brand colors.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Secure by Default</h3>
-          <p>No external dependencies means fewer security concerns.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <h3>Ready to Deploy</h3>
-          <p>One HTML file — upload it anywhere and you're live.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💡</div>
-          <h3>Modern Design</h3>
-          <p>Clean aesthetics with smooth animations and thoughtful details.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-image"></div>
-        <div class="about-text">
-          <h2>About this project</h2>
-          <p>This template was built to help you launch quickly without sacrificing quality. Every detail has been considered — from typography to spacing to color harmony.</p>
-          <p>Replace this text with your own story, mission, or product description. The layout adapts automatically to your content.</p>
-          <a href="#contact" class="btn btn-primary">Get in Touch</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Get in touch</h2>
-      <p class="section-subtitle">We'd love to hear from you</p>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <input type="text" placeholder="Your name" required />
-        <input type="email" placeholder="Your email" required />
-        <textarea placeholder="Your message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Starter. Built with care.</p>
-  </footer>
-
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert("Thanks for reaching out! (Hook this up to your backend or a service like Formspree.)");
-      e.target.reset();
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
