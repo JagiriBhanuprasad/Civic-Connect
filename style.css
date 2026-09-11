@@ -1453,3 +1453,98 @@ body.progress-open { overflow: hidden; }
 @keyframes coneBounce{50%{transform:translateY(-2px)}}
 @media(max-width:700px){.repair-scene-top{align-items:flex-start;flex-direction:column}.repair-animation{height:250px}.road-worker{left:37%;transform:scale(.9);transform-origin:bottom}.repair-shovel{left:45%;transform:scale(.9);transform-origin:bottom}.repair-check{right:10%;top:25px}.cone-left{left:6%}.cone-right{right:7%}.repair-caption{left:14px;bottom:14px}.repair-caption small{max-width:210px}}
 @media(prefers-reduced-motion:reduce){.repair-animation *,.repair-animation{animation:none!important}}
+
+
+/* =========================================================
+   CIVIC RESPONSE — HIGH VISIBILITY WORKER ANIMATION
+   ========================================================= */
+.repair-scene{
+    margin:28px 0 12px;
+    border:1px solid rgba(99,230,109,.22);
+    border-radius:26px;
+    background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(15,118,80,.055));
+    box-shadow:0 24px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.repair-scene-top{padding:20px 22px 15px}
+.repair-eyebrow{font-size:.7rem;color:#63e6d0;letter-spacing:.2em}
+.repair-scene-top h3{font-size:1.15rem;margin-top:4px}
+.repair-live{padding:8px 13px;background:rgba(25,195,125,.15);color:#e9fff3}
+.repair-animation{
+    height:340px;
+    background:
+      radial-gradient(circle at 50% 12%,rgba(99,230,109,.16),transparent 28%),
+      linear-gradient(180deg,#174b3a 0%,#0c3428 51%,#0a2b21 52%,#061c15 100%);
+}
+.repair-sky-glow{width:520px;height:230px;left:50%;top:-145px;transform:translateX(-50%);background:rgba(77,231,210,.16);filter:blur(35px)}
+.repair-road{height:190px;bottom:-62px;transform:perspective(520px) rotateX(56deg);background:linear-gradient(180deg,#344842,#182a24 72%);border-top:2px solid rgba(183,255,212,.2)}
+.pothole{left:50%;top:31px;width:150px;height:58px}
+.pothole-fill{animation:potholeFill 4.8s ease-in-out infinite}
+.safety-cone{bottom:104px;width:34px;height:58px}
+.cone-left{left:24%;}.cone-right{right:24%}
+.road-worker{
+    left:calc(50% - 118px);
+    bottom:93px;
+    width:100px;
+    height:175px;
+    transform:scale(1.15);
+    transform-origin:50% 100%;
+    filter:drop-shadow(0 13px 12px rgba(0,0,0,.3));
+    animation:workerShift 4.8s ease-in-out infinite;
+}
+.worker-head{left:34px;width:44px;height:47px}
+.worker-helmet{width:44px;height:22px;background:linear-gradient(180deg,#fff08a,#f4b400)}
+.worker-helmet::after{width:52px;height:6px;left:-4px}
+.worker-face{left:8px;top:16px;width:29px;height:31px}
+.worker-body{left:23px;top:45px;width:53px;height:72px}
+.worker-arm{width:19px;height:67px}
+.arm-back{left:10px;top:52px}
+.arm-front{left:66px;top:51px}
+.worker-leg{top:110px;width:21px;height:54px}
+.leg-back{left:27px}.leg-front{left:51px}
+.worker-boot{top:160px;width:28px;height:14px}
+.boot-back{left:19px}.boot-front{left:49px}
+.repair-shovel{
+    left:calc(50% - 5px);
+    bottom:99px;
+    width:110px;
+    height:160px;
+    transform:rotate(-4deg) scale(1.05);
+    transform-origin:bottom center;
+}
+.shovel-handle{left:49px;height:124px;width:7px}
+.shovel-grip{left:37px;top:-6px;width:32px;height:10px}
+.shovel-blade{left:27px;width:49px;height:39px}
+.worker-shadow{left:calc(50% - 145px);bottom:86px;width:180px;height:28px;filter:blur(5px)}
+.repair-dust{width:10px;height:10px}
+.dust-a{left:calc(50% - 55px);bottom:125px}.dust-b{left:calc(50% - 20px);bottom:137px}.dust-c{left:calc(50% - 5px);bottom:116px}
+.repair-caption{
+    left:50%;bottom:18px;transform:translateX(-50%);
+    width:min(88%,520px);padding:11px 16px;
+    border:1px solid rgba(183,255,212,.16);
+    background:rgba(2,22,16,.7);backdrop-filter:blur(12px);
+    border-radius:15px;text-align:center;
+}
+.repair-caption strong{display:block;color:#fff;font-size:.86rem}
+.repair-caption small{display:block;color:#a9d8c5;margin-top:3px;font-size:.68rem}
+.repair-check{right:10%;top:22%;width:54px;height:54px;font-size:1.7rem}
+
+@media(max-width:600px){
+    .repair-scene-top{align-items:flex-start;flex-direction:column;padding:17px}
+    .repair-animation{height:300px}
+    .road-worker{left:calc(50% - 108px);bottom:87px;transform:scale(.9)}
+    .repair-shovel{left:calc(50% - 2px);bottom:92px;transform:rotate(-4deg) scale(.88)}
+    .cone-left{left:12%}.cone-right{right:12%}
+    .repair-caption{bottom:12px;width:88%}
+}
+
+.worker-scene-badge{position:absolute;z-index:30;top:16px;left:18px;padding:8px 12px;border-radius:999px;background:rgba(3,28,20,.72);border:1px solid rgba(99,230,109,.25);color:#dfffee;font-size:.65rem;font-weight:900;letter-spacing:.08em;box-shadow:0 8px 20px rgba(0,0,0,.2);backdrop-filter:blur(8px)}
+@media(max-width:600px){.worker-scene-badge{font-size:.58rem;top:12px;left:12px}}
+
+/* ---------- LANGUAGE SELECTOR ---------- */
+.language-selector{display:flex;align-items:center;margin-left:8px;position:relative;z-index:5}
+.language-selector::before{content:'文A';position:absolute;left:12px;pointer-events:none;color:#b7ffd4;font-size:.72rem;font-weight:800;opacity:.9}
+#languageSelect{appearance:none;-webkit-appearance:none;border:1px solid rgba(183,255,212,.24);background:rgba(7,59,42,.72);color:#f3fff8;border-radius:999px;padding:10px 34px 10px 38px;font:700 .78rem/1 'DM Sans',sans-serif;cursor:pointer;outline:none;box-shadow:0 10px 28px rgba(0,0,0,.14);transition:.25s ease;backdrop-filter:blur(14px);min-width:118px}
+#languageSelect:hover,#languageSelect:focus{border-color:rgba(99,230,109,.65);box-shadow:0 0 0 4px rgba(25,195,125,.12),0 10px 28px rgba(0,0,0,.18);transform:translateY(-1px)}
+#languageSelect option{background:#073b2a;color:#fff}
+@media(max-width:900px){.language-selector{margin-left:auto;margin-right:8px}.nav-links .language-selector{margin-left:0}}
+@media(max-width:600px){#languageSelect{min-width:94px;padding-left:34px;padding-right:26px;font-size:.72rem}.language-selector::before{left:10px}}
