@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b3d2e">
+<title>Civic Connect — Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div id="loginView" class="auth-wrap">
+  <div class="auth-card">
+    <div class="admin-logo">CC</div>
+    <span class="eyebrow">CIVIC CONNECT</span>
+    <h1>Admin Dashboard</h1>
+    <p>Sign in to manage community reports.</p>
+    <form id="adminLoginForm">
+      <label for="adminUsername">Admin ID</label>
+      <input id="adminUsername" type="text" autocomplete="username" placeholder="admin" required>
+      <label for="adminPassword">Password</label>
+      <input id="adminPassword" type="password" autocomplete="current-password" placeholder="••••••••" required>
+      <button type="submit">Sign In →</button>
+      <div id="loginError" class="login-error" role="alert"></div>
+    </form>
+    <a class="back-link" href="index.html">← Back to Civic Connect</a>
+    <small class="demo-note">Hackathon demo admin • change credentials in admin.js before production.</small>
+  </div>
+</div>
+
+<div id="dashboardView" class="dashboard hidden">
+  <header class="admin-header">
+    <div>
+      <span class="eyebrow">CIVIC CONNECT</span>
+      <h1>Admin Control Center</h1>
+      <p>Review reports and update civic work progress.</p>
+    </div>
+    <div class="header-actions">
+      <a href="index.html">View Site</a>
+      <button id="logoutBtn" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="summary-grid">
+      <article><span>Total Issues</span><strong id="adminTotal">0</strong></article>
+      <article><span>Pending</span><strong id="adminPending">0</strong></article>
+      <article><span>In Progress</span><strong id="adminProgress">0</strong></article>
+      <article><span>Resolved</span><strong id="adminResolved">0</strong></article>
+    </section>
+
+    <section class="reports-panel">
+      <div class="panel-top">
+        <div><h2>All Reported Issues</h2><p>Manage every report submitted on this browser.</p></div>
+        <button id="refreshBtn" class="refresh" type="button">↻ Refresh</button>
+      </div>
+      <div id="adminReports" class="admin-reports"></div>
+    </section>
+  </main>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

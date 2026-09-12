@@ -2002,3 +2002,8 @@ body.progress-open { overflow: hidden; }
 .payment-logo-image{display:block;width:64px;height:32px;object-fit:contain;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important}
 .gpay-image{width:42px;height:34px}.axis-image{width:72px;height:28px}.paytm-image{width:70px;height:27px}
 @media(max-width:600px){.payment-logo-image{height:28px}.gpay-image{width:38px}.axis-image{width:62px}.paytm-image{width:62px}}
+
+/* Admin access button */
+.admin-nav-link{display:inline-flex;align-items:center;justify-content:center;padding:9px 13px;border:1px solid rgba(112,240,161,.24);border-radius:999px;color:#c8ffdd;text-decoration:none;font-size:12px;font-weight:800;background:rgba(29,126,78,.12);transition:.2s ease}
+.admin-nav-link:hover{background:rgba(112,240,161,.18);border-color:rgba(112,240,161,.45);transform:translateY(-1px)}
+@media(max-width:900px){.admin-nav-link{display:none}}
